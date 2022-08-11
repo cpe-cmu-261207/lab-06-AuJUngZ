@@ -6,14 +6,15 @@ import {
 } from "@tabler/icons";
 import React from "react";
 
-export default function UserCradDetail() {
+export default function UserCradDetail(props) {
   return (
     <div className="text-center">
       <p>
-        <IconMailForward /> Email...
+        <IconMailForward /> {props.email}
       </p>
       <p>
-        <IconMapPins /> Address...
+        <IconMapPins /> {props.location.city} {props.location.state}{" "}
+        {props.location.country} {props.location.postcode}
       </p>
     </div>
   );

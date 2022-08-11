@@ -43,7 +43,15 @@ export default function Home() {
       </div>
       {/* User Card Section */}
       {user.map((data) => {
-        return <UserCrad name={data.name.first}></UserCrad>;
+        return (
+          <UserCrad
+            name={data.name.first}
+            last={data.name.last}
+            img={data.picture.large}
+            email={data.email}
+            location={data.location}
+          ></UserCrad>
+        );
       })}
       <p className="text-center mt-3 text-muted fst-italic">
         made by Nuttapong Thepphithak 640610634

@@ -11,24 +11,25 @@ import UserCradDetail from "./UserCradDetail";
 export default function UserCrad(props) {
   const [isOpen, setIsOpen] = useState(false);
   const onclick = () => {
-    setIsOpen(true);
+    if (isOpen) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
   };
-  const onclick2 = () => {
-    setIsOpen(false);
-  };
+
   return (
-    <div className="border-bottom">
+    <div className="border-bottom" onClick={onclick}>
       {/* main section */}
       <div className="d-flex align-items-center p-3">
-        <img
-          src="/profile-placeholder.jpeg"
-          width="90px"
-          class="rounded-circle me-4"
-        />
-        <span className="text-center display-6 me-auto">{props.name}</span>
-        <IconChevronDown onClick={onclick} />
+        <img src={props.img} width="90px" class="rounded-circle me-4" />
+        <span className="text-center display-6 me-auto">
+          {props.name} {props.last}
+        </span>
+        <IconChevronDown />
         {/* UserCardDetail is hidden */}
       </div>
+      {isOpen && <UserCradDetail {...props} />}
     </div>
   );
 }
